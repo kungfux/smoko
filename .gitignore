@@ -1,0 +1,8 @@
+# Ignore Visual Studio user files
+*.suo
+*.user
+*.pyc
+.vs
+bin
+obj
+packages
