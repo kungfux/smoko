@@ -1,0 +1,130 @@
+﻿<Window x:Class="Smoko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Smoko"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        Title="Smoko"
+        Icon="pack://application:,,,/assets/appicon_light.ico"
+        Height="600"
+        Width="950">
+    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="212">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" DockPanel.Dock="Top" HorizontalAlignment="Right"
+                                  Margin="16" IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                    <ListBox x:Name="NavigationDrawerListBox" Margin="0 16 0 16" SelectedIndex="0">
+                        <ListBox.Items>
+                            <TextBlock Text="Invites" Margin="32 0 32 0" />
+                            <TextBlock Text="Channels" Margin="32 0 32 0" />
+                        </ListBox.Items>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="MenuToggleButton"/>
+                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                            <StackPanel>
+                                <Button Content="Theme" IsEnabled="True" />
+                                <Button Content="Settings" IsEnabled="True" />
+                                <Separator/>
+                                <Button Content="Exit" IsEnabled="True" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Text="Invites" Typography.Capitals="AllSmallCaps"/>
+                        </StackPanel>
+                    </DockPanel>
+                </materialDesign:ColorZone>
+                <ScrollViewer>
+                    <WrapPanel Margin="0 0 8 8">
+                            <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
+                            <Border BorderThickness="1" BorderBrush="MediumPurple">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/coffee.jpg" Stretch="UniformToFill"/>
+                                    <Border Grid.Row="1" Padding="8" Background="MediumPurple" Opacity="0.8" VerticalAlignment="Bottom">
+                                        <StackPanel>
+                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Coffee Break Invite</TextBlock>
+                                            <TextBlock TextWrapping="Wrap">Offered by Phoenix Rangel 2 minutes ago</TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
+                            <Border BorderThickness="1" BorderBrush="MediumPurple">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/lunch.jpg" Stretch="UniformToFill"/>
+                                    <Border Grid.Row="1" Padding="8" Background="MediumPurple" Opacity="0.8" VerticalAlignment="Bottom">
+                                        <StackPanel>
+                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Lunch Invite</TextBlock>
+                                            <TextBlock TextWrapping="Wrap">Offered by Brooke Navarro 2 hours ago</TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
+                            <Border BorderThickness="1" BorderBrush="MediumPurple">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/smoke.jpg" Stretch="UniformToFill"/>
+                                    <Border Grid.Row="1" Padding="8" Background="MediumPurple" Opacity="0.8" VerticalAlignment="Bottom">
+                                        <StackPanel>
+                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Smoko Invite</TextBlock>
+                                            <TextBlock TextWrapping="Wrap">Offered by Tessa Chavez yesterday</TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
+                            <Border BorderThickness="1" BorderBrush="MediumPurple">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/party.jpg" Stretch="UniformToFill"/>
+                                    <Border Grid.Row="1" Padding="8" Background="MediumPurple" Opacity="0.8" VerticalAlignment="Bottom">
+                                        <StackPanel>
+                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Party Invite</TextBlock>
+                                            <TextBlock TextWrapping="Wrap">Offered by Bill Joseph 2 days ago</TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </materialDesign:Card>
+                    </WrapPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</Window>
