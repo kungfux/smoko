@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Smoko"
+        xmlns:domain="clr-namespace:Smoko.Domain"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -21,11 +22,6 @@
 
     <Window.Resources>
         <Style TargetType="Border" x:Key="CardBorderText">
-            <Setter Property="Height" Value="60"/>
-            <Setter Property="Padding" Value="8"/>
-            <Setter Property="Opacity" Value=".8"/>
-            <Setter Property="Background" Value="MediumPurple"/>
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Trigger.EnterActions>
@@ -81,88 +77,42 @@
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <ScrollViewer>
-                    <WrapPanel Margin="0 0 8 8">
-
-                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
-                            <Border BorderThickness="1" BorderBrush="MediumPurple">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/coffee.jpg" Stretch="UniformToFill"/>
-                                    <Border Grid.Row="1" Style="{StaticResource CardBorderText}">
-                                        <StackPanel>
-                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Coffee Break Invite</TextBlock>
-                                            <TextBlock TextWrapping="Wrap">Offered by Phoenix Rangel 2 minutes ago</TextBlock>
-                                            <TextBlock TextWrapping="Wrap" Padding="8">Let's meet and discuss further Smoko architecture and protocol enhancements in 5 mins. Cheers!</TextBlock>
-                                        </StackPanel>
+                    <ItemsControl ItemsSource="{Binding InviteItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" Margin="0 0 8 8"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Resources>
+                            <DataTemplate DataType="{x:Type domain:Invite}">
+                                <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
+                                    <Border BorderThickness="1" BorderBrush="MediumPurple">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Grid.RowSpan="3" Source="{Binding Image}" Stretch="UniformToFill"/>
+                                            <Border Grid.Row="1" Style="{StaticResource CardBorderText}" Height="60" Padding="8" Opacity=".8" 
+                                                    Background="MediumPurple" VerticalAlignment="Bottom">
+                                                <StackPanel>
+                                                    <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding Title}"/>
+                                                    <TextBlock TextWrapping="Wrap">
+                                                        <Run Text="Offered by"/>
+                                                        <Run Text="{Binding Organizer}"/>
+                                                        <Run Text="{Binding Date}"/>
+                                                        <Run Text="ago"/>
+                                                    </TextBlock>
+                                                    <TextBlock TextWrapping="Wrap" Padding="8" Text="{Binding Details}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </Grid>
                                     </Border>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Card>
-
-                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
-                            <Border BorderThickness="1" BorderBrush="MediumPurple">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/lunch.jpg" Stretch="UniformToFill"/>
-                                    <Border Grid.Row="1" Style="{StaticResource CardBorderText}">
-                                        <StackPanel>
-                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Lunch Invite</TextBlock>
-                                            <TextBlock TextWrapping="Wrap">Offered by Brooke Navarro 2 hours ago</TextBlock>
-                                            <TextBlock TextWrapping="Wrap" Padding="8">Would you like to have a lunch, sir?</TextBlock>
-                                        </StackPanel>
-                                    </Border>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Card>
-
-                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
-                            <Border BorderThickness="1" BorderBrush="MediumPurple">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/smoke.jpg" Stretch="UniformToFill"/>
-                                    <Border Grid.Row="1" Style="{StaticResource CardBorderText}">
-                                        <StackPanel>
-                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Smoko Invite</TextBlock>
-                                            <TextBlock TextWrapping="Wrap">Offered by Tessa Chavez yesterday</TextBlock>
-                                            <TextBlock TextWrapping="Wrap" Padding="8">No additional message provided.</TextBlock>
-                                        </StackPanel>
-                                    </Border>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Card>
-
-                        <materialDesign:Card Height="200" Width="400" Padding="0" Margin="16">
-                            <Border BorderThickness="1" BorderBrush="MediumPurple">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.RowSpan="3" Source="pack://application:,,,/assets/party.jpg" Stretch="UniformToFill"/>
-                                    <Border Grid.Row="1" Style="{StaticResource CardBorderText}">
-                                        <StackPanel>
-                                            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Party Invite</TextBlock>
-                                            <TextBlock TextWrapping="Wrap">Offered by Bill Joseph 2 days ago</TextBlock>
-                                            <TextBlock TextWrapping="WrapWithOverflow" Padding="8">Pizza will wait for you at 3pm today due to my birthday.</TextBlock>
-                                        </StackPanel>
-                                    </Border>
-                                </Grid>
-                            </Border>
-                        </materialDesign:Card>
-                    </WrapPanel>
+                                </materialDesign:Card>
+                            </DataTemplate>
+                        </ItemsControl.Resources>
+                    </ItemsControl>
                 </ScrollViewer>
             </DockPanel>
         </materialDesign:DrawerHost>
