@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:IntercomApp.Properties"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="ApplicationName">IntercomApp</system:String>
+    <system:String x:Key="ApplicationSlogan">Собери людей вместе</system:String>
+    <system:String x:Key="MessageDefaultCaption">IntercomApp говорит...</system:String>
+    <system:String x:Key="MessageAppAlreadyRunning" xml:space="preserve">IntercomApp уже запущен.&#13;Вы можете найти иконку приложения в системном лотке рядом с часами.</system:String>
+</ResourceDictionary>

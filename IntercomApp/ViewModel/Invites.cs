@@ -1,7 +1,7 @@
-﻿using Smoko.Domain;
+﻿using IntercomApp.Domain;
 using System.Collections.Generic;
 
-namespace Smoko.ViewModel
+namespace IntercomApp.ViewModel
 {
     public class Invites
     {
@@ -11,7 +11,7 @@ namespace Smoko.ViewModel
                 new Invite()
                 {
                     Title = "Coffee Break Invite",
-                    Details = "Let's meet and discuss further Smoko architecture and protocol enhancements in 5 mins. Cheers!",
+                    Details = "Let's meet and discuss further IntercomApp architecture and protocol enhancements in 5 mins. Cheers!",
                     Organizer = "Phoenix Rangel",
                     Image = "pack://application:,,,/assets/coffee.jpg",
                     Date = "1 min"
@@ -26,7 +26,7 @@ namespace Smoko.ViewModel
                 },
                 new Invite()
                 {
-                    Title = "Smoko Invite",
+                    Title = "IntercomApp Invite",
                     Details = "",
                     Organizer = "Tessa Chavez",
                     Image = "pack://application:,,,/assets/smoke.jpg",
@@ -48,7 +48,7 @@ namespace Smoko.ViewModel
             {
                 InviteItems.Add(new Invite()
                 {
-                    Title = "Smoko Invite",
+                    Title = "IntercomApp Invite",
                     Details = "",
                     Organizer = "Tessa Chavez",
                     Image = "pack://application:,,,/assets/smoke.jpg",

@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Smoko")]
-[assembly: AssemblyDescription("Gather people together by sending invites in your corporate network")]
+[assembly: AssemblyTitle("IntercomApp")]
+[assembly: AssemblyDescription("Communicate with colleagues by sending invites in your corporate network")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Smoko")]
+[assembly: AssemblyProduct("IntercomApp")]
 [assembly: AssemblyCopyright("Copyright © Alexander Fuks  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

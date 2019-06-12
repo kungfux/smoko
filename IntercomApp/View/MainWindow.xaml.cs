@@ -1,7 +1,7 @@
-﻿using Smoko.ViewModel;
+﻿using IntercomApp.ViewModel;
 using System.Windows;
 
-namespace Smoko
+namespace IntercomApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

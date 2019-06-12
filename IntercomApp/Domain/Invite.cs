@@ -1,4 +1,4 @@
-﻿namespace Smoko.Domain
+﻿namespace IntercomApp.Domain
 {
     public class Invite
     {

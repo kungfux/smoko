@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Windows;
 
-namespace Smoko
+namespace IntercomApp
 {
     public partial class App : Application
     {
-        private const string MUTEX_NAME = "SmokoWpf";
+        private const string MUTEX_NAME = "IntercomApp";
         private static Mutex _mutex = null;
 
         private void Application_Startup(object sender, StartupEventArgs e)
