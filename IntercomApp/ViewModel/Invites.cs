@@ -13,32 +13,32 @@ namespace IntercomApp.ViewModel
                     Title = "Coffee Break Invite",
                     Details = "Let's meet and discuss further IntercomApp architecture and protocol enhancements in 5 mins. Cheers!",
                     Organizer = "Phoenix Rangel",
-                    Image = "pack://application:,,,/assets/coffee.jpg",
-                    Date = "1 min"
+                    Image = "pack://application:,,,/assets/coffee.png",
+                    Date = "1 min ago"
                 },
                 new Invite()
                 {
                     Title = "Lunch Invite",
                     Details = "Would you like to have a lunch, sir?",
                     Organizer = "Brooke Navarro",
-                    Image = "pack://application:,,,/assets/lunch.jpg",
-                    Date = "2 hours"
+                    Image = "pack://application:,,,/assets/pizza.png",
+                    Date = "2 hours ago"
                 },
                 new Invite()
                 {
                     Title = "IntercomApp Invite",
                     Details = "",
                     Organizer = "Tessa Chavez",
-                    Image = "pack://application:,,,/assets/smoke.jpg",
-                    Date = "1 day"
+                    Image = "pack://application:,,,/assets/cigarette.png",
+                    Date = "1 day ago"
                 },
                 new Invite()
                 {
                     Title = "Party Invite",
                     Details = "Pizza will wait for you at 3pm today due to my birthday.",
                     Organizer = "Bill Joseph",
-                    Image = "pack://application:,,,/assets/party.jpg",
-                    Date = "2 days"
+                    Image = "pack://application:,,,/assets/birthday-cake.png",
+                    Date = "2 days ago"
                 },
             };
 
@@ -51,8 +51,8 @@ namespace IntercomApp.ViewModel
                     Title = "IntercomApp Invite",
                     Details = "",
                     Organizer = "Tessa Chavez",
-                    Image = "pack://application:,,,/assets/smoke.jpg",
-                    Date = "1 day"
+                    Image = "pack://application:,,,/assets/tea.png",
+                    Date = "1 day ago"
                 });
             }
         }

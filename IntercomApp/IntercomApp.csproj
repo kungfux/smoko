@@ -127,5 +127,53 @@
   <ItemGroup>
     <Resource Include="assets\favicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\beer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\birthday-cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\biscuit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\cigarette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\cigarette-pack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\coffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\cupcake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\fries.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\noodles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\pie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\pizza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\spaguetti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\water-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\watermelon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

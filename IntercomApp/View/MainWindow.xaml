@@ -28,7 +28,7 @@
                                   Margin="16" IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                     <ListBox x:Name="NavigationDrawerListBox" Margin="0 16 0 16" SelectedIndex="0">
                         <ListBox.Items>
-                            <TextBlock Text="Invites Feed" Margin="32 0 32 0" />
+                            <TextBlock Text="Feed" Margin="32 0 32 0" />
                             <TextBlock Text="Channels" Margin="32 0 32 0" />
                         </ListBox.Items>
                     </ListBox>
@@ -47,80 +47,63 @@
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Text="Invites Feed"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Text="Feed"/>
                         </StackPanel>
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <ScrollViewer>
-                    <ItemsControl ItemsSource="{Binding InviteItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <!--<ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" Margin="0 0 8 8"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>-->
-                        <ItemsControl.Resources>
-                            <DataTemplate DataType="{x:Type domain:Invite}">
-                                <materialDesign:Card Width="550" Padding="0" Margin="16">
-                                    <StackPanel Orientation="Vertical">
-                                        <Image Source="pack://application:,,,/assets/coffee.png" Stretch="UniformToFill"/>
-                                        <Border Padding="8" Opacity=".8" Background="{DynamicResource SecondaryAccentForegroundBrush}" VerticalAlignment="Bottom">
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBlock Padding="0" Text="2 minutes ago"/>
-                                                <TextBlock Margin="0 8 0 8" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus neque, semper vitae augue non, ultrices vestibulum lacus. In condimentum risus velit, vel tempor lacus aliquam sed."/>
-                                                <Separator/>
-                                                <Grid Margin="0 4">
+                    <Grid Name="GlobalGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Name="CentralPanel" Grid.Column="1" Orientation="Vertical">
+                            <ItemsControl ItemsSource="{Binding InviteItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ItemsControl.Resources>
+                                    <DataTemplate DataType="{x:Type domain:Invite}">
+                                        <materialDesign:Card Margin="0 8 0 8" Padding="16" x:Name="InviteCard">
+                                            <DockPanel FlowDirection="LeftToRight">
+                                                <Image Source="{Binding Image}" Height="64" Width="64">
+                                                    <Image.Effect>
+                                                        <DropShadowEffect/>
+                                                    </Image.Effect>
+                                                </Image>
+                                                <Grid Margin="16 0 0 0">
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="auto"/>
                                                         <ColumnDefinition Width="auto"/>
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="auto"/>
-                                                        <ColumnDefinition Width="auto"/>
-                                                        <ColumnDefinition Width="auto"/>
-                                                        <ColumnDefinition Width="auto"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <materialDesign:PackIcon Kind="Person"/>
-                                                    <TextBlock Grid.Column="1" Text="Alexander Fuks" Padding="1 1 0 0"/>
-                                                    <materialDesign:PackIcon Grid.Column="3" Kind="CardsHeart"/>
-                                                    <TextBlock Grid.Column="4" Text="4" Padding="1 0 0 0"/>
-                                                    <materialDesign:PackIcon Grid.Column="5" Kind="Eye" Margin="10 0 0 0"/>
-                                                    <TextBlock Grid.Column="6" Text="10" Padding="1 0 0 0"/>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <DockPanel Grid.Column="0">
+                                                        <materialDesign:PackIcon Kind="Person" ToolTip="The person who sent the invite"/>
+                                                        <TextBlock Text="{Binding Organizer}"/>
+                                                    </DockPanel>
+                                                    <DockPanel Grid.Column="2">
+                                                        <materialDesign:PackIcon Kind="Clock" ToolTip="How old the invite"/>
+                                                        <TextBlock Text="{Binding Date}"/>
+                                                    </DockPanel>
+                                                    <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Margin="8" TextWrapping="Wrap" Text="{Binding Details}"/>
+                                                    <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                                                        <materialDesign:PackIcon Kind="Eye" ToolTip="How many people received the invite"/>
+                                                        <TextBlock Text="10"/>
+                                                        <Label Width="16"/>
+                                                        <materialDesign:PackIcon Kind="CardsHeart" ToolTip="How many people liked the invite"/>
+                                                        <TextBlock Text="4"/>
+                                                    </StackPanel>
                                                 </Grid>
-                                            </StackPanel>
-                                        </Border>
-                                    </StackPanel>
-                                </materialDesign:Card>
-                            </DataTemplate>
-                        </ItemsControl.Resources>
-                    </ItemsControl>
-                    <!--<materialDesign:Card Width="550" Padding="0" Margin="16">
-                        <StackPanel Orientation="Vertical">
-                            <Image Source="pack://application:,,,/assets/coffee.jpg" Stretch="UniformToFill"/>
-                            <Border Padding="8" Opacity=".8" Background="{DynamicResource SecondaryAccentForegroundBrush}" VerticalAlignment="Bottom">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Padding="0" Text="2 minutes ago"/>
-                                    <TextBlock Margin="0 8 0 8" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus neque, semper vitae augue non, ultrices vestibulum lacus. In condimentum risus velit, vel tempor lacus aliquam sed."/>
-                                    <Separator/>
-                                    <Grid Margin="0 4">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <materialDesign:PackIcon Kind="Person"/>
-                                        <TextBlock Grid.Column="1" Text="Alexander Fuks" Padding="1 1 0 0"/>
-                                        <materialDesign:PackIcon Grid.Column="3" Kind="CardsHeart"/>
-                                        <TextBlock Grid.Column="4" Text="4" Padding="1 0 0 0"/>
-                                        <materialDesign:PackIcon Grid.Column="5" Kind="Eye" Margin="10 0 0 0"/>
-                                        <TextBlock Grid.Column="6" Text="10" Padding="1 0 0 0"/>
-                                    </Grid>
-                                </StackPanel>
-                            </Border>
+                                            </DockPanel>
+                                        </materialDesign:Card>
+                                    </DataTemplate>
+                                </ItemsControl.Resources>
+                            </ItemsControl>
                         </StackPanel>
-                    </materialDesign:Card>-->
+                    </Grid>
                 </ScrollViewer>
             </DockPanel>
         </materialDesign:DrawerHost>
